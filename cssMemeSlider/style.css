@@ -10,26 +10,27 @@ body {
     background-color: #6A555C;
 }
 
+
+input {
+    display: none;
+}
+
 .slider-wrapper {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
+    align-content: center;
+    justify-content: space-between;
     gap: 7%;
-    width: 50vw;
+    width: 75vw;
     height: 70vh;
     margin: 0 auto;
     padding: 20px;
     background-color: #D0B9C1;
     border: 5px solid #BC857E;
     border-radius: 20px;
-    justify-content: space-between;
-    align-content: center;
     overflow: hidden;
 
-}
-
-input {
-    display: none;
 }
 
 .slides {
@@ -57,22 +58,28 @@ input {
 }
 
 .slide-titles {
+    display: flex;
+    flex-shrink: 0;
     width: 75%;
     font-family: sans-serif;
-    font-size: 0;
+    font-size: 1.1rem;
     font-weight: 500;
+    line-height: 1.1rem;
     color: #6A555C;
+    overflow: hidden;
     transition: all .5s ease;
 }
 
 .title {
+    min-width: 100%;
     vertical-align: bottom;
     padding: .4%;
+    word-break: none;
 }
 
 .buttons {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     width: 100px;
     height: 40px;
 
@@ -99,10 +106,17 @@ input {
         transition: .3s;
     }
 
-    &:first-child:active {
+    &:active {
         background-color: #ccdf42;
         opacity: 1;
     }
+}
+
+#btn1:checked~div.buttons>label.b1,
+#btn2:checked~div.buttons>label.b2,
+#btn3:checked~div.buttons>label.b3,
+#btn4:checked~div.buttons>label.b4 {
+    background-color: #ccdf42;
 }
 
 #btn1:checked~div.slides>div.s1 {
@@ -121,18 +135,37 @@ input {
     margin-left: -75%;
 }
 
-#btn1:checked~div.buttons>label.b1,
-#btn2:checked~div.buttons>label.b2,
-#btn3:checked~div.buttons>label.b3,
-#btn4:checked~div.buttons>label.b4 {
-    background-color: #ccdf42;
-}
-
-#btn1:checked~div.slide-titles>div.t1,
-#btn2:checked~div.slide-titles>div.t2,
-#btn3:checked~div.slide-titles>div.t3,
-#btn4:checked~div.slide-titles>div.t4 {
-    font-size: 1.1rem;
+#btn1:checked~div.slide-titles>div.title {
+    transform: translateX(0);
     transition: all .5s ease;
 
+}
+
+#btn2:checked~div.slide-titles>div.title {
+    transform: translateX(-100%);
+    transition: all .5s ease;
+
+}
+
+#btn3:checked~div.slide-titles>div.title {
+    transform: translateX(-200%);
+    transition: all .5s ease;
+
+}
+
+#btn4:checked~div.slide-titles>div.title {
+    transform: translateX(-300%);
+    transition: all .5s ease;
+}
+
+@media (max-width: 768px) {
+    .slide-titles {
+        order: 3;
+        margin-left: 7%;
+    }
+
+    .buttons {
+        order: 2;
+        margin: 0 auto;
+    }
 }
