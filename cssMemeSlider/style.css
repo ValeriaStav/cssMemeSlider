@@ -1,3 +1,10 @@
+:root {
+    --color1: #404646;
+    --color2: #c8e9e8;
+    --color3: #3bafa6;
+    --color4: #FF8B8B;
+}
+
 * {
     margin: 0;
 }
@@ -7,7 +14,7 @@ body {
     vertical-align: middle;
     width: 100vw;
     height: 100vh;
-    background-color: #6A555C;
+    background-color: var(--color1);
 }
 
 
@@ -26,8 +33,8 @@ input {
     height: 70vh;
     margin: 0 auto;
     padding: 1.25rem;
-    background-color: #D0B9C1;
-    border: 0.3rem solid #BC857E;
+    background-color: var(--color2);
+    border: 0.3rem solid var(--color3);
     border-radius: 1.25rem;
     overflow: hidden;
 
@@ -45,6 +52,7 @@ input {
 .slide {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     flex-grow: 0;
     width: 25%;
@@ -55,6 +63,7 @@ input {
 .slide img {
     height: 100%;
     border-radius: 1.25rem;
+    overflow: hidden;
 }
 
 .slide-titles {
@@ -65,7 +74,7 @@ input {
     font-size: 1.1rem;
     font-weight: 500;
     line-height: 1.1rem;
-    color: #6A555C;
+    color: var(--color1);
     overflow: hidden;
     transition: all .5s ease;
 }
@@ -90,14 +99,14 @@ input {
     width: 1.1rem;
     height: 1.1rem;
     border-radius: 50%;
-    border: .3rem solid #D0B9C1;
-    background-color: #6A555C;
+    border: .3rem solid var(--color2);
+    background-color: var(--color1);
     opacity: .7;
     transition: all .5s ease;
     user-select: none;
 
     &:hover {
-        background-color: #6A555C;
+        background-color: var(--color1);
         opacity: 1;
         cursor: pointer;
         transform: scale(1.2);
@@ -105,7 +114,7 @@ input {
     }
 
     &:active {
-        background-color: #ccdf42;
+        background-color: var(--color4);
         opacity: 1;
     }
 }
@@ -114,7 +123,7 @@ input {
 #btn2:checked~div.buttons>label.b2,
 #btn3:checked~div.buttons>label.b3,
 #btn4:checked~div.buttons>label.b4 {
-    background-color: #ccdf42;
+    background-color: var(--color4);
 }
 
 #btn1:checked~div.slides>div.s1 {
@@ -165,5 +174,20 @@ input {
     .buttons {
         order: 2;
         margin: 0 auto;
+    }
+}
+
+@media (max-width:420px) {
+    .slider-wrapper {
+        max-height: 60vh;
+    }
+
+    .slides {
+        min-width: 415%;
+        height: auto;
+    }
+
+    .slide img {
+        max-height: 85%;
     }
 }
